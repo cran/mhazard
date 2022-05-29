@@ -12,7 +12,7 @@
 #' @param lambda10,lambda01 Rate parameters for the (marginal) exponential
 #' distributions.
 #' @param lambdaC1,lambdaC2 Rate parameters for the censoring times. No
-#' censoring occurs if this paramter is equal to 0.
+#' censoring occurs if this parameter is equal to 0.
 #' @section Details:
 #' This function simulates data with the following survival function:
 #' F(t1,t2) = \[F(t1,0)^(-theta) + F(0,t2)^(-theta) - 1\]^(-1/theta)

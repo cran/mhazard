@@ -10,7 +10,7 @@
 #' @param n Sample size for the simulated data set.
 #' @param theta Parameter for the Clayton copula. Must be -1 or larger.
 #' @param lambdaC1,lambdaC2,lambdaC3 Rate parameters for the censoring
-#' times. No censoring occurs if this paramter is equal to 0.
+#' times. No censoring occurs if this parameter is equal to 0.
 #' @section Details:
 #' This function simulates data with the following survival function:
 #' F(t1,t2,t3) = \[F(t1,0,0)^(-theta) + F(0,t2,0)^(-theta) +

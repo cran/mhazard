@@ -15,24 +15,30 @@
 #' @param ylab The y-axis label. Defaults to "T2".
 #' @param zlab The z-axis label. Defaults to "Fhat".
 #' @param ... Additional parameters to the persp3D function.
-#' @seealso \code{\link{KM2}}, \code{\link[plot3D]{persp3D}}
-#' @importFrom plot3D persp3D
-#' @export
+#' @seealso \code{\link{mhazard-deprecated}}, \code{\link[plot3D]{persp3D}}
 #' @examples
-#' x <- genClayton2(1000, 0, 1, 1, 2, 2)
-#' x.km2 <- KM2(x$Y1, x$Y2, x$Delta1, x$Delta2)
+#' \donttest{x <- genClayton2(1000, 0, 1, 1, 2, 2)}
+#' \donttest{x.km2 <- KM2(x$Y1, x$Y2, x$Delta1, x$Delta2)}
 #' \donttest{plotKM2.3D(x.km2)}
 #'
-#' x2 <- genClayton2(1000, 2, 1, 1, 2, 2)
-#' x2.km2 <- KM2(x2$Y1, x2$Y2, x2$Delta1, x2$Delta2)
+#' \donttest{x2 <- genClayton2(1000, 2, 1, 1, 2, 2)}
+#' \donttest{x2.km2 <- KM2(x2$Y1, x2$Y2, x2$Delta1, x2$Delta2)}
 #' \donttest{plotKM2.3D(x2.km2)}
+#' @name plotKM2.3D-deprecated
+#' @usage plotKM2.3D(km2.obj, col="grey", shade=0.25, theta=120,
+#'                   xlab="T1", ylab="T2", zlab="Fhat", ...)
+#' @keywords internal
+NULL
+
+#' @rdname mhazard-deprecated
+#' @section \code{plotKM2.3D}:
+#' For \code{plotKM2.3D}, use \code{\link{plotnpSurv2.3D}}.
+#'
+#' @export
 plotKM2.3D <- function(km2.obj, col="grey", shade=0.25, theta=120,
                         xlab="T1", ylab="T2", zlab="Fhat", ...) {
-    T1 <- km2.obj$T1
-    T2 <- km2.obj$T2
-    Fhat <- km2.obj$Fhat
-    plot3D::persp3D(c(0, T1), c(0, T2), Fhat, col=col, shade=shade,
-                    theta=theta, xlab=xlab, ylab=ylab, zlab=zlab, ...)
+    .Deprecated("plotnpSurv2.3D", package="mhazard")
+    plotnpSurv2.3D(km2.obj, col, shade, theta, xlab, ylab, zlab, ...)
 }
 
 #' Uses a heat map to visualize a bivariate survival function
@@ -49,25 +55,28 @@ plotKM2.3D <- function(km2.obj, col="grey", shade=0.25, theta=120,
 #' @param xlab The x-axis label. Defaults to "T1".
 #' @param ylab The y-axis label. Defaults to "T2".
 #' @param ... Additional parameters to the image function.
-#' @seealso \code{\link{KM2}}, \code{\link[graphics]{image}}
-#' @importFrom graphics image
-#' @importFrom grDevices terrain.colors
-#' @export
+#' @seealso \code{\link{mhazard-deprecated}}, \code{\link[graphics]{image}}
 #' @examples
-#' x <- genClayton2(1000, 0, 1, 1, 2, 2)
-#' x.km2 <- KM2(x$Y1, x$Y2, x$Delta1, x$Delta2)
-#' plotKM2.HM(x.km2)
+#' \donttest{x <- genClayton2(1000, 0, 1, 1, 2, 2)}
+#' \donttest{x.km2 <- KM2(x$Y1, x$Y2, x$Delta1, x$Delta2)}
+#' \donttest{plotKM2.HM(x.km2)}
 #'
-#' x2 <- genClayton2(1000, 2, 1, 1, 2, 2)
-#' x2.km2 <- KM2(x2$Y1, x2$Y2, x2$Delta1, x2$Delta2)
-#' plotKM2.HM(x2.km2)
+#' \donttest{x2 <- genClayton2(1000, 2, 1, 1, 2, 2)}
+#' \donttest{x2.km2 <- KM2(x2$Y1, x2$Y2, x2$Delta1, x2$Delta2)}
+#' \donttest{plotKM2.HM(x2.km2)}
+#' @name plotKM2.HM-deprecated
+#' @usage plotKM2.HM(km2.obj, contour=TRUE, col=terrain.colors(100),
+#'                   xlab="T1", ylab="T2", ...)
+#' @keywords internal
+NULL
+
+#' @rdname mhazard-deprecated
+#' @section \code{plotKM2.HM}:
+#' For \code{plotKM2.HM}, use \code{\link{plotnpSurv2.HM}}.
+#'
+#' @export
 plotKM2.HM <- function(km2.obj, contour=TRUE, col=terrain.colors(100),
                         xlab="T1", ylab="T2", ...) {
-    T1 <- km2.obj$T1
-    T2 <- km2.obj$T2
-    Fhat <- km2.obj$Fhat
-    image(c(0, T1), c(0, T2), Fhat, col=col, xlab=xlab, ylab=ylab, ...)
-    if (contour) {
-        contour(c(0, T1), c(0, T2), Fhat, add=TRUE)
-    }
+    .Deprecated("plotnpSurv2.HM", package="mhazard")
+    plotnpSurv2.HM(km2.obj, contour, col, xlab, ylab, ...)
 }

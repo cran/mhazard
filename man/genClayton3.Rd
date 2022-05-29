@@ -12,7 +12,7 @@ genClayton3(n, theta, lambdaC1, lambdaC2, lambdaC3)
 \item{theta}{Parameter for the Clayton copula. Must be -1 or larger.}
 
 \item{lambdaC1, lambdaC2, lambdaC3}{Rate parameters for the censoring
-times. No censoring occurs if this paramter is equal to 0.}
+times. No censoring occurs if this parameter is equal to 0.}
 }
 \value{
 A data frame containing the following elements:

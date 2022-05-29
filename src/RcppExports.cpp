@@ -6,6 +6,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // calcF
 NumericMatrix calcF(NumericVector lambda10, NumericVector lambda01, NumericMatrix lambda11);
 RcppExport SEXP _mhazard_calcF(SEXP lambda10SEXP, SEXP lambda01SEXP, SEXP lambda11SEXP) {

@@ -15,7 +15,7 @@ genClayton2(n, theta, lambda10, lambda01, lambdaC1, lambdaC2)
 distributions.}
 
 \item{lambdaC1, lambdaC2}{Rate parameters for the censoring times. No
-censoring occurs if this paramter is equal to 0.}
+censoring occurs if this parameter is equal to 0.}
 }
 \value{
 A data frame containing the following elements:

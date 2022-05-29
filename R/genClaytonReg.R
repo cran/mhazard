@@ -15,7 +15,7 @@
 #' distributions when X=0.
 #' @param b10,b01,b11 Regression coefficient values.
 #' @param lambdaC1,lambdaC2 Rate parameters for the censoring times. No
-#' censoring occurs if this paramter is equal to 0.
+#' censoring occurs if this parameter is equal to 0.
 #' @section Details:
 #' This function simulates data with the following survival function:
 #' F(t1,t2) = \[F(t1,0)^(-eta) + F(0,t2)^(-eta) - 1\]^(-1/eta)
@@ -97,4 +97,74 @@ genClaytonReg <- function(n, theta, Xp, lambda10, lambda01, b10, b01, b11, lambd
 
     return(data.frame(Y1=Y1, Y2=Y2, Delta1=Delta1, Delta2=Delta2,
                       X=X))
+}
+
+#' Creates an example of a matrix of time-varying covariates
+#'
+#' Given a set of (non-time-varying) covariates, creates a simple example
+#' of a matrix of time-varying covariates that can be used as input data
+#' for the mHR2.tvc function.
+#'
+#' @param Y1,Y2 Vectors of event times (continuous).
+#' @param Delta1,Delta2 Vectors of censoring indicators (1=event,
+#' 0=censored).
+#' @param X Matrix of covariates (continuous or binary).
+#' @section Details:
+#' For each (non-time-varying) covariate in X, two time-varying
+#' covariates are created. The first time-varying covariate is equal to
+#' X*log(T1), and the second is equal to X*log(T2). (If T=0, then the
+#' time-varying covariate is set to be 0.) A vector of ID numbers and a
+#' matrix of time-varying covariates are created in a format that can be
+#' passed to the mHR2.tvc function.
+#' @return A list containing the following elements:
+#' \describe{
+#' \item{ids:}{A vector of ids}
+#' \item{X.tv:}{Time-varying covariate matrix}
+#' }
+#' @seealso \code{\link{mHR2}}, \code{\link{genClaytonReg}}
+#' @export
+#' @examples
+#' x <- genClaytonReg(250, 2, 0.5, 1, 1, 0, log(2), 0, 5, 5)
+#' x.tv <- tvc.example(x$Y1, x$Y2, x$Delta1, x$Delta2, x$X)
+tvc.example <- function(Y1, Y2, Delta1, Delta2, X)
+{
+    T1 <- c(0,unique(sort(Y1[Delta1==1])))
+    T2 <- c(0,unique(sort(Y2[Delta2==1])))
+
+    n <- length(Y1)
+    X <- as.matrix(X)
+    np <- ncol(X)
+    I <- length(T1)
+    J <- length(T2)
+
+    X.tv <- matrix(nrow=n*I*J, ncol=3*(np+1))
+
+    ids <- seq(from=1001, to=(1000+n), by=1)
+
+    for (k in 1:n) {
+        for (i in 1:I) {
+            for (j in 1:J) {
+                X.tv[(k-1)*I*J+(i-1)*J+j,1] <- 1000+k
+                X.tv[(k-1)*I*J+(i-1)*J+j,2] <- T1[i]
+                X.tv[(k-1)*I*J+(i-1)*J+j,3] <- T2[j]
+                X.tv[(k-1)*I*J+(i-1)*J+j,(4:(np+3))] <- X[k,]
+                if (T1[i]>0) {
+                    X.tv[(k-1)*I*J+(i-1)*J+j,((np+4):(2*np+3))] <-
+                        X[k,]*log(T1[i])
+                }
+                else {
+                    X.tv[(k-1)*I*J+(i-1)*J+j,((np+4):(2*np+3))] <- 0
+                }
+                if (T2[j]>0) {
+                    X.tv[(k-1)*I*J+(i-1)*J+j,((2*np+4):(3*np+3))] <-
+                        X[k,]*log(T2[j])
+                }
+                else {
+                    X.tv[(k-1)*I*J+(i-1)*J+j,((2*np+4):(3*np+3))] <- 0
+                }
+            }
+        }
+    }
+
+    return(list(ids=ids, X.tv=X.tv))
 }
