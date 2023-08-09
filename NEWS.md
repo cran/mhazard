@@ -1,6 +1,12 @@
-# mhazard 0.2.1
+# mhazard
 
-## Major changes
+# mhazard 0.2.2
+
+ * Several new data sets have been added.
+
+ * Several references were updated.
+
+# mhazard 0.2.1
 
  * Many functions have been renamed. Old function names have been
    deprecated.

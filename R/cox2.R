@@ -30,7 +30,8 @@
 #' Prentice, R., Zhao, S. "The statistical analysis of multivariate
 #' failure time data: A marginal modeling approach", CRC Press (2019).
 #' Prentice, R., Zhao, S. "Regression models and multivariate life tables",
-#' Journal of the American Statistical Association (2020) In press.
+#' Journal of the American Statistical Association (2021) 116(535):
+#' 1330-1345 https://doi.org/10.1080/01621459.2020.1713792
 #' @examples
 #' \donttest{x <- genClaytonReg(1000, 2, 0.5, 1, 1, log(2), log(2),
 #' log(8/3), 2, 2)}
@@ -117,7 +118,8 @@ cox2 <- function(Y1, Y2, Delta1, Delta2, X){
 #' Prentice, R., Zhao, S. "The statistical analysis of multivariate
 #' failure time data: A marginal modeling approach", CRC Press (2019).
 #' Prentice, R., Zhao, S. "Regression models and multivariate life tables",
-#' Journal of the American Statistical Association (2020) In press.
+#' Journal of the American Statistical Association (2021) 116(535):
+#' 1330-1345. https://doi.org/10.1080/01621459.2020.1713792
 #' @examples
 #' \donttest{x <- genClaytonReg(1000, 2, 0.5, 1, 1, log(2), log(2),
 #' log(8/3), 2, 2)}

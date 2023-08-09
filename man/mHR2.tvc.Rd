@@ -63,7 +63,8 @@ x.tv$ids, x.tv$X.tv)}
 Prentice, R., Zhao, S. "The statistical analysis of multivariate
 failure time data: A marginal modeling approach", CRC Press (2019).
 Prentice, R., Zhao, S. "Regression models and multivariate life tables",
-Journal of the American Statistical Association (2020) In press.
+Journal of the American Statistical Association (2021) 116(535):
+1330-1345. https://doi.org/10.1080/01621459.2020.1713792
 }
 \seealso{
 \code{\link{mHR2}}
