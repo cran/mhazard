@@ -47,10 +47,10 @@
 #' @importFrom rootSolve multiroot
 #' @export
 #' @examples
-#' x <- genClaytonReg(250, 2, 0.5, 1, 1, 0, log(2), 0, 5, 5)
+#' x <- genClaytonReg(50, 2, 0.5, 1, 1, 0, log(2), 0, 5, 5)
 #' x.tv <- tvc.example(x$Y1, x$Y2, x$Delta1, x$Delta2, x$X)
-#' \donttest{x.mHR2 <- mHR2.tvc(x$Y1, x$Y2, x$Delta1, x$Delta2,
-#' x.tv$ids, x.tv$X.tv)}
+#' x.mHR2 <- mHR2.tvc(x$Y1, x$Y2, x$Delta1, x$Delta2,
+#' x.tv$ids, x.tv$X.tv)
 mHR2.tvc <- function(Y1, Y2, Delta1, Delta2, ids, X) {
     n <- length(Y1)
     if (length(Y2)!=n | length(Delta1)!=n | length(Delta2)!=n |

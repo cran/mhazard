@@ -69,10 +69,10 @@
 #' @importFrom boot boot
 #' @export
 #' @examples
-#' x <- genClayton3(200, 0, 0.5, 0.5, 0.5)
+#' x <- genClayton3(25, 0, 0.5, 0.5, 0.5)
 #' x.npSurv3 <- npSurv3(x$Y1, x$Y2, x$Y3, x$Delta1, x$Delta2, x$Delta3)
-#' \donttest{x.npSurv3.ci <- npSurv3(x$Y1, x$Y2, x$Y3, x$Delta1, x$Delta2,
-#' x$Delta3, conf.int=TRUE, R=500)}
+#' x.npSurv3.ci <- npSurv3(x$Y1, x$Y2, x$Y3, x$Delta1, x$Delta2,
+#' x$Delta3, conf.int=TRUE, R=500)
 npSurv3 <- function(Y1, Y2, Y3, Delta1, Delta2, Delta3, newT1=NULL, newT2=NULL,
                     newT3=NULL, conf.int=FALSE, R=1000, ...){
     if (min(c(Y1, Y2, Y3))<0) {

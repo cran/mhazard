@@ -4,7 +4,7 @@
 #' Computes the survival function for bivariate failure time data using one
 #' of three possible estimators, including Dabrowska, Volterra and
 #' Prentice-Cai estimators. Optionally (bootstrap) confidence intervals for
-#' the survival function may also be computed. 
+#' the survival function may also be computed.
 #'
 #' @param Y1,Y2 Vectors of event times (continuous).
 #' @param Delta1,Delta2 Vectors of censoring indicators (1=event,
@@ -61,10 +61,10 @@
 #' @importFrom boot boot
 #' @export
 #' @examples
-#' x <- genClayton2(1000, 0, 1, 1, 2, 2)
+#' x <- genClayton2(100, 0, 1, 1, 2, 2)
 #' x.npSurv2 <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2)
-#' \donttest{x.npSurv2.ci <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2,
-#' conf.int=TRUE)}
+#' x.npSurv2.ci <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2,
+#' conf.int=TRUE)
 #' x.npSurv2.volt <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2,
 #' estimator="volterra")
 #' x.npSurv2.t <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2,

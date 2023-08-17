@@ -87,13 +87,13 @@ confidence="none".
 }
 
 \examples{
-x <- genClaytonReg(1000, 2, 0.5, 1, 1, log(2), log(2), log(8/3), 2, 2)
+x <- genClaytonReg(50, 2, 0.5, 1, 1, log(2), log(2), log(8/3), 2, 2)
 x.mHR2 <- mHR2(x$Y1, x$Y2, x$Delta1, x$Delta2, x$X)
 x.LF <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1), c(0.25, 0.5, 1))
-\donttest{x.LF.CI <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1),
-c(0.25, 0.5, 1), confidence="CI")}
-\donttest{x.LF.CB <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1),
-c(0.25, 0.5, 1), confidence="CB")}
+x.LF.CI <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1),
+c(0.25, 0.5, 1), confidence="CI")
+x.LF.CB <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1),
+c(0.25, 0.5, 1), confidence="CB")
 }
 \references{
 Prentice, R., Zhao, S. "The statistical analysis of multivariate

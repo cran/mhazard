@@ -80,10 +80,10 @@ confidence bounds will not be returned in the output.
 }
 
 \examples{
-x <- genClayton2(1000, 0, 1, 1, 2, 2)
+x <- genClayton2(100, 0, 1, 1, 2, 2)
 x.npSurv2 <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2)
-\donttest{x.npSurv2.ci <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2,
-conf.int=TRUE)}
+x.npSurv2.ci <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2,
+conf.int=TRUE)
 x.npSurv2.volt <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2,
 estimator="volterra")
 x.npSurv2.t <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2,

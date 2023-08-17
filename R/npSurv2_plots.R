@@ -20,13 +20,13 @@
 #' @importFrom plot3D persp3D
 #' @export
 #' @examples
-#' x <- genClayton2(1000, 0, 1, 1, 2, 2)
+#' x <- genClayton2(100, 0, 1, 1, 2, 2)
 #' x.npSurv2 <- npSurv2(x$Y1, x$Y2, x$Delta1, x$Delta2)
-#' \donttest{plotnpSurv2.3D(x.npSurv2)}
+#' plotnpSurv2.3D(x.npSurv2)
 #'
-#' x2 <- genClayton2(1000, 2, 1, 1, 2, 2)
+#' x2 <- genClayton2(100, 2, 1, 1, 2, 2)
 #' x2.npSurv2 <- npSurv2(x2$Y1, x2$Y2, x2$Delta1, x2$Delta2)
-#' \donttest{plotnpSurv2.3D(x2.npSurv2)}
+#' plotnpSurv2.3D(x2.npSurv2)
 plotnpSurv2.3D <- function(npSurv2.obj, col="grey", shade=0.25, theta=120,
                            xlab="T1", ylab="T2", zlab="Fhat", ...) {
     T1 <- npSurv2.obj$T1

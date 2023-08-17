@@ -335,13 +335,13 @@ mHR2 <- function(Y1, Y2, Delta1, Delta2, X){
 #' @importFrom stats quantile sd
 #' @export
 #' @examples
-#' x <- genClaytonReg(1000, 2, 0.5, 1, 1, log(2), log(2), log(8/3), 2, 2)
+#' x <- genClaytonReg(50, 2, 0.5, 1, 1, log(2), log(2), log(8/3), 2, 2)
 #' x.mHR2 <- mHR2(x$Y1, x$Y2, x$Delta1, x$Delta2, x$X)
 #' x.LF <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1), c(0.25, 0.5, 1))
-#' \donttest{x.LF.CI <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1),
-#' c(0.25, 0.5, 1), confidence="CI")}
-#' \donttest{x.LF.CB <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1),
-#' c(0.25, 0.5, 1), confidence="CB")}
+#' x.LF.CI <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1),
+#' c(0.25, 0.5, 1), confidence="CI")
+#' x.LF.CB <- mHR2.LF(x.mHR2, 0, 1, c(0.25, 0.5, 1),
+#' c(0.25, 0.5, 1), confidence="CB")
 mHR2.LF <- function(mHR2.obj, X0_out, X1_out, T1_out, T2_out,
                     confidence=c("none", "CI", "CB"), n.boot=100){
     Y1 <- mHR2.obj$Y1

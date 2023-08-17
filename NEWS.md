@@ -1,5 +1,12 @@
 # mhazard
 
+# mhazard 0.2.3
+
+ * Deprecated functions were removed from the package.
+ 
+ * Several examples were modified slightly to make them run more
+   quickly.
+
 # mhazard 0.2.2
 
  * Several new data sets have been added.
